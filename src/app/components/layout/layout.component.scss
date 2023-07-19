@@ -1,0 +1,61 @@
+@import "variables";
+
+$dynamic-content-margin: max(20vw, 20rem);
+
+.Layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+  transition: 0.2s;
+
+  &.show-menu {
+    margin-left: $dynamic-content-margin;
+  }
+}
+
+.AppBar {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-navigation - 1;
+  background: $white;
+  border: $border-100;
+  display: flex;
+  padding: 0 3rem 0 1rem;
+  align-items: center;
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $gray-900;
+    padding: 1.5rem 0;
+    //margin: 0 3rem 0 1rem;
+    margin: 0 auto;
+  }
+
+  .sidebar-toggle {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 1rem;
+    margin-right: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__nav {
+    flex: 0;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    > * {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.AppMain {
+  grid-row: 2 / -1;
+  padding: 2.5rem 3rem;
+  overflow-x: auto;
+}

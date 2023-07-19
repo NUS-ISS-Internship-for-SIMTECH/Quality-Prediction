@@ -1,0 +1,15 @@
+<kendo-grid [data]="workOrderData" [pageSize]="10" [pageable]="true" [height]="400" [sortable]="true" [sort]="[]"
+    [selectable]="selectableSettings" kendoGridSelectBy [(selectedKeys)]="workOrderSelection"
+    (cellClick)="workOrderClickHandler($event)">
+    <kendo-grid-column field="id" title="Work Order" [width]="130"
+        [style]="{'text-align': 'center'}"></kendo-grid-column>
+    <kendo-grid-column field="startDt" title="Start Time" [width]="180"
+        [style]="{'text-align': 'center'}"></kendo-grid-column>
+    <kendo-grid-column field="passPredict" title="% Pass Prediction" [width]="70" class="no-padding"
+        [style]="{'text-align': 'center'}">
+    </kendo-grid-column>
+    <kendo-grid-column field="failTotalQty" title="Total Fail / Total Qty" [style]="{'text-align': 'center'}"
+        [width]="150"></kendo-grid-column>
+    <kendo-grid-column field="status" title="Status" [width]="100"
+        [style]="{'text-align': 'center'}"></kendo-grid-column>
+</kendo-grid>

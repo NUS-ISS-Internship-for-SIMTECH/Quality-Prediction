@@ -1,0 +1,117 @@
+// Color: base
+$white: #ffffff;
+$gray-100: #ffffff;
+$gray-200: #f8f8fd;
+$gray-300: #f0f1fa;
+$gray-400: #e1e1e8;
+$gray-500: #cbcbd6;
+$gray-600: #9191a1;
+$gray-700: #676775;
+$gray-800: #393947;
+$gray-900: #000000;
+$black: #000000;
+
+// Color: derived
+$primary: #1262d8;
+$accent: $primary;
+$secondary: $gray-300; //$gray-700;
+$info: #5965e7;
+$success: #28cf7f;
+$warning: #ffc107;
+$error: #ef5350;
+$body-bg: $gray-200;
+$body-color: $gray-800;
+// $component-bg: $gray-100;
+// $component-color: $gray-800;
+$card-cap-bg: $gray-100;
+$card-cap-color: $gray-800;
+
+// dark theme
+$dark-theme-body-bg: $gray-800;
+$dark-theme-subtle-text: $gray-400;
+$dark-theme-disabled-text: $gray-400;
+$dark-theme-component-bg: $gray-700;
+$dark-theme-header-bg: $gray-800;
+$dark-theme-hovered-bg: #212529;
+$dark-theme-selected-bg: #0275d8;
+$dark-theme-button-bg: $gray-600;
+$dark-theme-link-hover-text: $gray-700;
+
+
+// Color: graphs
+$series-a: $primary;
+$series-b: $info;
+$series-c: #4eb89b;
+$series-d: #ff7562;
+$series-e: #c267ff;
+$series-f: $warning;
+
+// Layout
+$grid-component-gap: 1.25rem;
+$grid-section-gap: 1.75rem;
+$border-radius: 0.25rem;
+$shadow-100: 0 0.25rem 0.5rem 0 transparentize($gray-700, 0.85);
+$shadow-200: 0 0.5rem 1rem 0 transparentize($gray-700, 0.7);
+$border-100: 1px solid $gray-400;
+$transition-100: all 0.3s ease-out;
+$z-index-always: 9001;
+$z-index-navigation: 1000;
+
+// Sample: map-get($grid-breakpoints, "lg")
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 2200px,
+  xxxxl: 2800px,
+  ultra: 3300px,
+  ultra-big: 4000px,
+) !default;
+
+// Typography
+$font-family-base: Lato, Helvetica, sans-serif;
+$font-size-root: 14px;
+$font-size-base: 1rem;
+$font-size-xxl: 2.5rem;
+$font-size-xl: 1.75rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.75rem;
+$line-height-base: 1.5;
+$font-size-h1: 1.75rem;
+$font-size-h2: 1.25rem;
+$font-size-h3: 1.25rem;
+$font-size-h4: 1.25rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1rem;
+
+// For JS access (usually for graphs)
+// Sample: getComputedStyle(document.documentElement).getPropertyValue('--white')
+:root {
+  --white: #{$white};
+  --gray-100: #{$gray-100};
+  --gray-200: #{$gray-200};
+  --gray-300: #{$gray-300};
+  --gray-400: #{$gray-400};
+  --gray-500: #{$gray-500};
+  --gray-600: #{$gray-600};
+  --gray-700: #{$gray-700};
+  --gray-800: #{$gray-800};
+  --gray-900: #{$gray-900};
+  --primary: #{$primary};
+  --accent: #{$accent};
+  --secondary: #{$secondary};
+  --info: #{$info};
+  --success: #{$success};
+  --warning: #{$warning};
+  --error: #{$error};
+  --series-a: #{$series-a};
+  --series-b: #{$series-b};
+  --series-c: #{$series-c};
+  --series-d: #{$series-d};
+  --series-e: #{$series-e};
+  --series-f: #{$series-f};
+}

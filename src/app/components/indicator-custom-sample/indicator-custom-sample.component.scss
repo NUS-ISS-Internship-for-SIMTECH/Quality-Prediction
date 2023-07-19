@@ -1,0 +1,138 @@
+@import "variables";
+
+//for hovering kpi with nextroutelink detail
+.component-click-more-detail {
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-200;
+
+    .Indicator__group {
+      color: $black !important;
+    }
+    .Indicator__detail {
+      color: $black;
+    }
+    .Indicator__callout {
+      color: $black;
+    }
+  }
+}
+
+.Indicator {
+  position: relative;
+  //display: inline-block;
+  padding: 1rem 2rem;
+  border: $border-100;
+  border-radius: $border-radius;
+  background: $white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  //carot to indicate more details
+  .front-option {
+    margin-left: 1rem;
+    width: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: $font-size-h3;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    justify-content: space-between;
+    margin-bottom: 0%;
+  }
+
+  .column {
+    float: left;
+  }
+  .left {
+    width: 85%;
+  }
+
+  .right {
+    width: 15%;
+  }
+
+  &.large {
+    padding: 3rem 2rem;
+
+    .Indicator__name,
+    .front-option {
+      font-size: $font-size-xxl;
+      word-wrap: break-word;
+    }
+
+    .Indicator__group {
+      margin: 0;
+      font-size: $font-size-xl;
+    }
+
+    .Indicator__detail {
+      font-size: $font-size-xl;
+    }
+
+    .Indicator__callout {
+      font-size: $font-size-xxl;
+    }
+  }
+
+  &__name,
+  &__group,
+  &__callout {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: $font-size-xl;
+    word-wrap: break-word;
+  }
+
+  &__group {
+    margin: 0 0 0.5rem 0;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    color: $gray-600;
+  }
+
+  &__callout {
+    font-size: $font-size-h1;
+    margin: 0;
+  }
+
+  &__detail {
+    margin: 0;
+    color: $gray-600;
+    font-size: $font-size-sm;
+  }
+
+  &__status {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.5rem;
+    height: 100%;
+    // background: $success;
+
+    // &.success {
+    //   background: $success;
+    // }
+    // &.error {
+    //   background: $error;
+    // }
+    // &.warning {
+    //   background: $warning;
+    // }
+  }
+}

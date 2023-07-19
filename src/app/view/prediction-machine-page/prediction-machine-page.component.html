@@ -1,0 +1,65 @@
+<div>
+    <div class="tabbar">
+        <div class="col-md-7 tabbar__title">
+            Quality Dashboard
+        </div>
+
+        <div class="tabbar__datepicker">
+            <div class="tabbar__datepicker__text">Select a date: </div>
+            <kendo-datepicker (valueChange)="onDateChange($event)" [value]="dateValue"></kendo-datepicker>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <section class="chart">
+            <kendo-chart>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="categoriesWorkOrderChart" [title]="{ text: 'Dates' }">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item [min]="minYaxisRealTimeChart"
+                        [max]="maxYaxisRealTimeChart"></kendo-chart-value-axis-item>
+                    <kendo-chart-title text="Work-Order % Pass Prediction"></kendo-chart-title>
+                    <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+                    <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+                    <kendo-chart-series>
+                        <kendo-chart-series-item *ngFor="let item of workOrderChartSeries" type="line"
+                            [data]="item.data" [name]="item.name" [markers]="item.markers"
+                            [color]="item.color"></kendo-chart-series-item>
+                    </kendo-chart-series>
+                </kendo-chart-value-axis>
+            </kendo-chart>
+        </section>
+    </div>
+    <div class="row">
+        <div [style]="{'margin-top': '20px'}" class="col-md-8">
+            <app-prediction-grid *ngIf="isDateUpdated" [workOrderData]="workOrderData"
+                (messageToParent)="updateIndictor($event)">
+            </app-prediction-grid>
+        </div>
+        <div class="col-md-4 indicator_new">
+            <kendo-card class="indicator_new_card">
+                <kendo-card-header class="k-hstack">
+                    <div>
+                        <h1 kendoCardTitle>% Pass Prediction</h1>
+                    </div>
+                </kendo-card-header>
+                <kendo-card-body>
+                    <h1 *ngIf="passPrediction != -1">{{passPrediction}}</h1>
+                    <h1 *ngIf="passPrediction == -1"></h1>
+                </kendo-card-body>
+            </kendo-card>
+            <kendo-card class="indicator_new_card">
+                <kendo-card-header class="k-hstack">
+                    <div>
+                        <h1 kendoCardTitle>Total Fail / Total Prediction</h1>
+
+                    </div>
+                </kendo-card-header>
+                <kendo-card-body>
+                    <h1>{{totalFailPrediction}}</h1>
+                </kendo-card-body>
+            </kendo-card>
+        </div>
+    </div>
+</div>

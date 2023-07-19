@@ -1,0 +1,28 @@
+@import "variables";
+
+// Redefine component specific variables
+// Component: Appbar
+$appbar-margin-y: 0;
+$appbar-margin-x: 0;
+$appbar-padding-y: 0;
+$appbar-padding-x: 2rem;
+// $appbar-dark-bg: $component-bg;
+// $appbar-dark-text: $body-color;
+// $appbar-font-family;
+// $appbar-font-size;
+// $appbar-line-height;
+
+// Component: Dropdown
+// $dropdown-link-hover-bg: $gray-400;
+// $dropdownlist-bg: $gray-400;
+// $dropdownlist-text: $gray-800;
+// $dropdownlist-border: $gray-500;
+// $dropdownlist-hovered-bg: $gray-500;
+// $dropdownlist-focused-bg: $gray-600;
+
+// Component: Button
+$clear-button-hover-text: $gray-800;
+
+.k-notification-group {
+  z-index: 1000;
+}

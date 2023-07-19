@@ -1,0 +1,22 @@
+<div class="Layout" [ngClass]="{'show-menu': !isMenuCollapsed }">
+    <div class="AppBar">
+        <!-- Hamburger -->
+        <span class="sidebar-toggle" (click)="menuToggle();" *ngIf="isSideMenuSelected">
+            <kendo-icon [name]="'hamburger'"></kendo-icon>
+        </span>
+        <div>
+            <h1 class="AppBar__title">{{ appName }}</h1>
+            <!--appName changed to 'APPNAME' | translate-->
+        </div>
+
+        <!-- <app-horizontal-menu *ngIf="!isSideMenuSelected"></app-horizontal-menu> -->
+    </div>
+
+    <!-- Side Bar -->
+    <app-sidebar *ngIf="isSideMenuSelected"></app-sidebar>
+
+    <main class="AppMain">
+        <router-outlet></router-outlet>
+        <div kendoDialogContainer></div>
+    </main>
+</div>

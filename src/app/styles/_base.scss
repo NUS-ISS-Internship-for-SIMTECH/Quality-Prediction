@@ -1,0 +1,29 @@
+@import "variables";
+
+html {
+  font-size: $font-size-root;
+
+  @media screen and (min-width: 1500px) {
+    font-size: calc(
+      $font-size-root + (40 - 16) * (100vw - 1500px) / (3840 - 1500)
+    );
+  }
+
+  //@media screen and (min-width: 3840px) {
+  //  font-size: calc(1.1vw);
+  //}
+}
+
+body {
+  font-family: Lato, Helvetica, sans-serif;
+  font-size: $font-size-base;
+  background: $gray-200;
+  color: $gray-800;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

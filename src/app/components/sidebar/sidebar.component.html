@@ -1,0 +1,20 @@
+<!-- Sidebar that becomes toggleable on smaller screens -->
+<aside class="Sidebar">
+    <!-- Logo -->
+    <img class="Sidebar__logo" src="assets/img/logo.png" alt="SIMTech Logo" />
+    <!-- Category title and items -->
+    <div class="Sidebar__menu">
+        <!-- FIXME: When menuGroup has no items for current elevation, category should not appear -->
+        <kendo-panelbar class="dis-custom-menu-bar">
+
+            <kendo-panelbar-item class="dis-custom-panelbar-item" *ngFor="let menuGroup of menuGroups; index as i"
+                [routerLink]="menuGroup.link" routerLinkActive="active">
+                <ng-template kendoPanelBarItemTitle>
+                    <h4 class="Sidebar__menuCategoryTitle">{{ menuGroup.group}}
+                    </h4>
+                </ng-template>
+
+            </kendo-panelbar-item>
+        </kendo-panelbar>
+    </div>
+</aside>
