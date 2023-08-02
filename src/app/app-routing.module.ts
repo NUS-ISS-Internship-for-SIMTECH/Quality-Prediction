@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'quality-prediction-page',
     component: PredictionMachinePageComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'quality-prediction-page',
+  },
 ];
 
 @NgModule({

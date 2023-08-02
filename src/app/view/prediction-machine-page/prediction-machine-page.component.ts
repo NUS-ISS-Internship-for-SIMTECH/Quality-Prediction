@@ -2,14 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TARGET } from 'src/app/setting/behavior.config';
 import { HttpserviceService } from 'src/app/service/httpservice.service';
 import { SelectableSettings } from '@progress/kendo-angular-grid';
-import { CellClickEvent } from '@progress/kendo-angular-grid';
-interface IWorkPiece {
-  wpId: number; // ws: start from 1 to tray
-  wpName: string;
-  processingStatus: number; // 0:in queue, 1:completed
-  predictResult: string;
-  isOOS: boolean; //  1:fail , 2: pass
-}
+
 @Component({
   selector: 'app-prediction-machine-page',
   templateUrl: './prediction-machine-page.component.html',
@@ -61,6 +54,7 @@ export class PredictionMachinePageComponent implements OnInit {
         this.predictionResultList = prediction;
         this.populateWorkOrder();
         this.calTableData();
+        this.defaultUpdateIndictor();
       });
   }
 
@@ -71,12 +65,11 @@ export class PredictionMachinePageComponent implements OnInit {
         this.predictionResultList = prediction;
         this.populateWorkOrder();
         this.calTableData();
+        this.defaultUpdateIndictor();
         this.isDateUpdated = !this.isDateUpdated;
         setTimeout(() => {
           this.isDateUpdated = !this.isDateUpdated;
         }, 50);
-        this.passPrediction = -1;
-        this.totalFailPrediction = '';
       });
   }
 
@@ -86,14 +79,17 @@ export class PredictionMachinePageComponent implements OnInit {
       this.workOrderData[parseInt(message)].failTotalQty;
   }
 
-  public initData(prediction: []) {
-    this.predictionResultList = prediction;
-    this.populateWorkOrder();
-    this.calTableData();
-  }
-
   public onDateChange(value: Date) {
     this.updateWorkOrderData();
+  }
+
+  public defaultUpdateIndictor() {
+    this.passPrediction = this.workOrderData.length
+      ? this.workOrderData[0].passPredict
+      : -1;
+    this.totalFailPrediction = this.workOrderData.length
+      ? this.workOrderData[0].failTotalQty
+      : '';
   }
 
   public populateWorkOrder() {
